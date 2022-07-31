@@ -1,0 +1,19 @@
+// Move all negatives one side of the array
+
+#include <iostream>
+#include<algorithm>
+using namespace std;
+
+int sort(int arr[], int n){
+    sort(arr, arr+n);
+}
+int main() {
+	int arr[] = {-5,9,-3,1,4,5,-2,-6,6};
+	int n = sizeof(arr)/sizeof(int);
+    sort(arr, n);
+    for(int x: arr){
+        cout<<x<<" ";
+    }
+    cout<<endl;
+	return 0;
+}
