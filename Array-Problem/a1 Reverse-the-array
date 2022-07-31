@@ -1,0 +1,21 @@
+#include<iostream>
+#include<string>
+using namespace std;
+string reverseWord(string str){
+    
+  int n = str.length();
+  int start = 0;
+  int end = n-1;
+  while(start < end){
+      swap(str[start] , str[end]);
+      start++;
+      end--;
+  }
+  return str;
+}
+int main()
+{
+  string str = "Geeks";
+  cout<<reverseWord(str);
+  return 0;
+}
