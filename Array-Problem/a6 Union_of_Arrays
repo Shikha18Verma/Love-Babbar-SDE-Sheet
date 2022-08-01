@@ -1,0 +1,51 @@
+// C++ program to find number of elements in the union of two sorted arrays
+#include <bits/stdc++.h>
+using namespace std;
+
+/* Function returns no. of elements in the union of arr1[] and arr2[]
+m is the number of elements in arr1[]
+n is the number of elements in arr2[] */                                                   //for passing all the test case we should have to use hash set here
+
+int doUnion(int arr1[], int arr2[],int m, int n)  {
+       int i = 0, j = 0;
+       vector<int> arr;
+       while(i < m && j < n){
+           
+           if(arr1[i] < arr2[j])
+               arr.push_back(arr1[i++]);
+           
+           else if(arr1[i] > arr2[j])
+               arr.push_back(arr2[j++]);
+           
+           else{
+               arr.push_back(arr2[j++]);
+               i++;
+           }
+       }
+       
+       while(i < m){
+           arr.push_back(arr1[i++]);
+       }
+       
+       while(j < n){
+           arr.push_back(arr2[j++]);
+       }
+       return arr.size();
+}
+
+/* Driver program to test above function */
+
+int main()
+{
+	int arr1[] = { 1, 2, 4, 5, 6 };
+	int arr2[] = { 2, 4, 5, 7 };
+
+	int m = sizeof(arr1) / sizeof(arr1[0]);
+	int n = sizeof(arr2) / sizeof(arr2[0]);
+
+	// Function calling
+	cout<<doUnion(arr1, arr2, m, n);
+
+	return 0;
+}
+
